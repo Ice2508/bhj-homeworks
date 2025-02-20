@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="task.css" />
   </head>
   <body>
+    
     <header class="header">
       <div class="logo__container">
         <a href="https://netology.ru/" class="logo__link"></a>
@@ -21,8 +22,17 @@
         результатов.
       </h1>
     </header>
+    
+
+    
     <main class="content">
-      <div class="card">
+      <div class="overlay">
+            <div class="popup">
+              <p>Спасибо, ваш голос засчитан!</p><hr>
+              <a href='' class="close">Закрыть</a>
+            </div>
+    </div>  
+       <div class="card">
         <div class="poll">
           <div class="poll__title" id="poll__title">
             <!--   Как вы относитесь к собакам? -->
@@ -40,6 +50,9 @@
             <button class="poll__answer">
               Кто тут?
             </button> -->
+            <div class="otvet">
+              
+            </div>
           </div>
         </div>
       </div>

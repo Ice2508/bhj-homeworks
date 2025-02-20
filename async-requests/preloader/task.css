@@ -3,6 +3,8 @@ body {
 }
 .item {
   display: flex;
+  flex-wrap: wrap;
+
 }
 
 .item__code {
@@ -19,4 +21,8 @@ body {
 }
 .loader_active {
   display: block;
+}
+
+.item div {
+  display: inline;
 }

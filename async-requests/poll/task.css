@@ -9,3 +9,49 @@ body {
 .poll__title {
   margin-bottom: 20px;
 }
+
+.poll__answers button {
+  background: #bdc1c7;
+}
+
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: none;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.4);
+ }
+
+.popup {
+   position: relative;
+   background: white;
+   width: 280px;
+   height: 100px;
+   top: 20%;
+   left: 50%;
+   transform: translateX(-50%);
+   z-index: 2;
+}
+
+.popup p {
+  padding: 20px 7px 5px;
+}
+
+.popup hr {
+  height: 3px;
+  background: #edddb7;
+  border: none;
+}
+
+.close {
+  color: #7792d1;
+  padding-right: 10px;
+  padding-top: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  position: absolute;
+  top: 67px;
+  right: 7px;
+  cursor: pointer;
+}
