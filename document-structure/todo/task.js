@@ -17,7 +17,7 @@ function addRemoveListener(taskDiv) {
 }
 
 function createTask() {
-    if (input.value === '') {
+    if (input.value.trim() === '') {
         return;
     }
     tasksArr.push(input.value);
@@ -38,13 +38,6 @@ tasksArr.forEach(el => {
                          <a href="#" class="task__remove">&times;</a>`;
     tasksList.appendChild(taskDiv);
     addRemoveListener(taskDiv);
-});
-
-input.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-        event.preventDefault();
-        createTask();
-    }
 });
 
 taskAdd.addEventListener('click', (event) => {

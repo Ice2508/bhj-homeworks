@@ -5,12 +5,18 @@ hasTooltip.forEach(element => {
     element.addEventListener('click', (event) => {
         event.preventDefault();
         const existingTooltip = document.querySelector('.tooltip_active');
-        if (existingTooltip) {
-            existingTooltip.classList.remove('tooltip_active');
-        }
+
         if (!element.dataset.tooltipText) {
             element.dataset.tooltipText = element.getAttribute('title');
             element.removeAttribute('title');
+        }
+
+        if (existingTooltip) {
+            if (existingTooltip.previousElementSibling === element) {
+                existingTooltip.classList.remove('tooltip_active');
+                return;
+            }
+            existingTooltip.classList.remove('tooltip_active');
         }
         const tooltipText = element.dataset.tooltipText;
         const rect = element.getBoundingClientRect();
@@ -29,6 +35,7 @@ hasTooltip.forEach(element => {
         element.insertAdjacentHTML("afterend",
             `<div class='tooltip tooltip_active' style='${tooltipStyle}'>
                     ${tooltipText}
-                </div>`);
+            </div>`
+        );
     });
 });
