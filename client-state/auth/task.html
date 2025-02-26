@@ -21,19 +21,19 @@
     <main class="content">
         <div class="overlay">
             <div class="popup">
-                <span class="text">Неверный логин/пароль</span><hr>
+                <span class="text"></span><hr>
                 <span class="close">Закрыть</span>
             </div>
         </div>    
         <div class="card">
             <div class="signin signin_active" id="signin">
                 <h2 class="title">Вход</h2>
-                <form action="https://students.netoservices.ru/nestjs-backend/auth" id="signin__form">
+                <form action="https://students.netoservices.ru/nestjs-backend/auth" id="signin__form"novalidate>
                     <div class="row">
-                        <input type="text" name="login" class="control" placeholder="Логин">
+                        <input type="text" name="login" class="control" placeholder="Логин" required>
                     </div>
                     <div class="row">
-                        <input type="password" name="password" class="control" placeholder="Пароль">
+                        <input type="password" name="password" class="control" placeholder="Пароль" required>
                     </div>
                     <div class="row">
                         <button class="btn" id="signin__btn">Войти</button>

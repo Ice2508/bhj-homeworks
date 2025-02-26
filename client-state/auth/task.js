@@ -6,34 +6,30 @@ const signin = document.getElementById('signin');
 const overlay = document.querySelector('.overlay');
 const close = document.querySelector('.close');
 const control = document.querySelectorAll('.control');
+const text = document.querySelector('.text');
 form.addEventListener('submit', (event) => {
     event.preventDefault();
-    let isFormValid = true;
-    control.forEach(el => {
-        if (el.value.trim() === '') {
-            isFormValid = false;
-        }
-    });
-    if (isFormValid) {
+    if (form.checkValidity()) {
         const xhr = new XMLHttpRequest();
         xhr.open('POST', 'https://students.netoservices.ru/nestjs-backend/auth');
+        xhr.responseType = 'json';
         xhr.onload = function() {
-            if (xhr.status >= 200 && xhr.status <= 299) {
-                const response = JSON.parse(xhr.responseText);
-                if (response.success) {
-                    localStorage.setItem('key', response.user_id);
-                    welcome.classList.add('welcome_active');
-                    userId.textContent = response.user_id;
-                    signin.classList.remove('signin_active');
-                } else {
-                    overlay.classList.add('overlay_active');
-                }
+            const response = xhr.response;
+            if (response.success) {
+                localStorage.setItem('key', response.user_id);
+                welcome.classList.add('welcome_active');
+                userId.textContent = response.user_id;
+                signin.classList.remove('signin_active');
             } else {
-                console.error('ошибка запроса');
+                overlay.classList.add('overlay_active');
+                text.textContent = 'Неверный логин/пароль';
             }
         }
         const formData = new FormData(form);
         xhr.send(formData);
+    } else {
+        overlay.classList.add('overlay_active');
+        text.textContent = 'Введите логин/пароль';
     }
 })
 close.onclick = () => {
